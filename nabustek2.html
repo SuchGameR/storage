@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<html>
+<head>
+  <link rel="shortcut icon" href="ketsuban.png" type="image/x-icon">
+  <title>????????????????????????????????????????</title>
+  <style>
+    body {
+      background-color: black;
+      animation: blink 0.0001s infinite;
+    }
+
+    @keyframes blink {
+      0% {
+        background-color: black;
+      }
+      50% {
+        background-color: rgb(255, 0, 0);
+      }
+      100% {
+        background-color: black;
+      }
+    }
+
+    .moving-image {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <script> 
+    // const audio = new Audio('sound1.wav');
+ 
+    // document.body.addEventListener('click', () => {
+    //   audio.loop();
+    //   audio.play();
+    // });
+
+    // const audio2 = new Audio('sound3.wav');
+ 
+    document.body.addEventListener('click', () => {
+      audio.loop = false;
+      for(;;) {
+        audio.play();
+        // setTimeout(() => {
+        // }, 0);
+      }
+    });
+
+    // function playSoundLoop() {
+    //   var audio1 = new Audio('/sound1.wav');
+    //   var audio2 = new Audio('/sound2.wav');
+
+    //   audio1.addEventListener('ended', function() {
+    //     this.currentTime = 0;
+    //     this.play();
+    //   });
+
+    //   audio2.addEventListener('ended', function() {
+    //     this.currentTime = 0;
+    //     this.play();
+    //   });
+    
+    //   audio1.play();
+    //   audio2.play();
+    // }
+    
+    // playSoundLoop()
+    
+    function getRandomPosition(containerWidth, containerHeight, imageWidth, imageHeight) {
+      var maxX = containerWidth - imageWidth;
+      var maxY = containerHeight - imageHeight;
+      
+      var randomX = Math.floor(Math.random() * maxX);
+      var randomY = Math.floor(Math.random() * maxY);
+      
+      return [randomX, randomY];
+    }
+    
+    function moveImages() {
+      var containerWidth = window.innerWidth;
+      var containerHeight = window.innerHeight;
+      
+      var images = document.getElementsByClassName('moving-image');
+      
+      for (var i = 0; i < images.length; i++) {
+        var image = images[i];
+        
+        var imageWidth = Math.floor(Math.random() * 300) + 100; // 100から300の間でランダムな幅を生成
+        var imageHeight = Math.floor(Math.random() * 300) + 100; // 100から300の間でランダムな高さを生成
+        
+        var newPosition = getRandomPosition(containerWidth, containerHeight, imageWidth, imageHeight);
+        
+        image.style.left = newPosition[0] + 'px';
+        image.style.top = newPosition[1] + 'px';
+        image.style.width = imageWidth + 'px';
+        image.style.height = imageHeight + 'px';
+      }
+    }
+    
+    function createMovingImages(numImages) {
+      var body = document.getElementsByTagName('body')[0];
+      
+      for (var i = 0; i < numImages; i++) {
+        var image = document.createElement('img');
+        image.className = 'moving-image';
+        image.src = 'ketsuban.png';
+        image.alt = 'Moving Image';
+        
+        body.appendChild(image);
+      }
+    }
+    
+    createMovingImages(30); // 5つの画像を作成
+    
+    setInterval(moveImages, 0); // 1秒ごとに画像を移動させる場合
+    
+    // もしくは、以下のようにボタンクリックなどのイベントで動作させることもできます
+    /*
+    var button = document.getElementById('move-button');
+    button.addEventListener('click', moveImages);
+    */
+   setTimeout(() => {
+    alert("?҈̥̳̩͇͕̟̗̲̪͙̪̏̔̓͋̀̂͆͌͒̏̔̍͂?҈̲̱͚͎̋̓͒͋̏̈̽̅͒?҈̗̘̣̟͙̙̝̞̤͕̱̘́͛͌̐͊̿̄ D҈̗̥͚̙̱͍̳͇̟͙̤̪̒͆͆̑̋̀͐̏͗͊͒̍́͑͊ͅe҈̳̥̝̗͓̗͖̳͍̤̩͋̌͒̈́̅͗̍̽̃̓͂て̵̰̠͔̙̫̘͉̠̙͓̦͇̩̍͆͌͂̋̅̅̓̈̆̀͂͛̌I҉̘̱̩͇̗̬̜̆̏̌̿͂̃͑͒͊̍͛̈́̿̚ǩ̷͍̜̦̲́̄͆̅̉̃͂́̿ͅê̷̖̱͕̤̳̫͇͎̓̌͌");
+    location.href = "nabustek.html"
+   }, 400);
+   
+  </script>
+  <audio type="audio/mpeg" src="sound1.wav" autoplay loop></audio>
+</body>
+</html>

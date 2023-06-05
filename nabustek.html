@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<html>
+<head>
+  <title>?????????????????????????????????</title>
+  <style>
+    body {
+      padding: 0px;
+      margin: 0px;
+      overflow: hidden;
+      background-color: black;
+      animation: blink 5.7s;
+      user-select: none;
+    }
+    #moving-image {
+      position: absolute;
+      animation: blink2 3s;
+    }
+
+    @keyframes blink2 {
+      0% {
+        transform:scale(0.3);
+      }
+      50% {
+        transform:scale(0.3);
+      }
+      75% {
+        transform: scale(6) translateY(100px) translateX(-20px);
+      }
+    }
+
+    @keyframes blink {
+      0% {
+        background-color: black;
+      }
+      75% {
+        background-color: rgb(255, 0, 0);
+      }
+      100% {
+        background-image: url(/scaryeys.jpg);
+        background-size: 200px;
+      }
+    }
+      
+  </style>
+</head>
+<body>
+  <div style="margin: 0 auto; width: 100px; display: flex; padding-top: calc(50vh - 10vh);"><img id="moving-image" src="/ketsuban.png" alt="???"></div>
+  <script>
+    function PlaySound() {
+      audioElem = new Audio();
+      audioElem.src = "se.wav";
+      audioElem.play();
+    }
+
+    setTimeout(() => {
+      PlaySound()
+      setTimeout(() => {
+        location.href = "t1.html"
+      }, 1800);
+    }, 0);
+  </script>
+</body>
+</html>
