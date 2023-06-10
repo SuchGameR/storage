@@ -35,5 +35,5 @@ function startPrinting() {
 }
 
 setTimeout(() => {
-  location.href = 'netatale4.html';
+  location.href = 'netatale_neverforget.html';
 }, 2900);
